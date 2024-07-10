@@ -4,20 +4,6 @@
 echo "Updating from GitHub..."
 git pull
 
-# Define a pattern with •
-pattern="
-               ###    ###                          ##                  ##               ##        
- ## ##          ##     ##                  ####    ##                  ##              ##         
- ## ##          ##     ##                  ## ##           #           ##              ##     ##  
- ## ##   ###    ##     ##     ###          ## ##  ###    # # #   ####  ####           ##      ##  
- #####  ## ##   ##     ##    ## ##         ####    ##     ###   ##     ## ##          ##          
- ## ##  #####   ##     ##    ## ##         ## ##   ##    # # #  ##     ## ##          ##          
- ## ##  ##      ##     ##    ## ##         ## ##   ##      #    ##     ## ##           ##     ##  
- ## ##   ###   ####   ####    ###          ####   ####           ####  ## ##           ##     ##  
-                                                                                        ##        
-# Wait for 5 seconds (adjust as needed)
-sleep 3    
-                                                                             
 # Clear the screen
 clear
 
@@ -84,5 +70,6 @@ if [[ -n "${BOT_TOKEN}" && -n "${CHAT_ID}" ]]; then
     echo "Telegram message sent."
 else
     echo "Error: BOT_TOKEN or CHAT_ID is not set. Telegram message not sent."
+fi
 
 echo "Daily tasks completed."
