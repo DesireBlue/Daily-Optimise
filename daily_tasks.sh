@@ -1,8 +1,6 @@
 #!/bin/bash
 
-# Reboot server daily
-echo "Rebooting server..."
-sudo reboot
+echo "Running daily tasks..."
 
 # Optimize server daily (replace with your optimization commands)
 echo "Optimizing server..."
@@ -18,5 +16,34 @@ echo "Clearing cache..."
 echo "Speeding up server..."
 # Example: Tune kernel parameters
 # Example: sysctl -w vm.swappiness=10
+
+# Cleaning RAM
+echo "Cleaning RAM..."
+sync
+echo 3 > /proc/sys/vm/drop_caches
+echo "Memory status after cleaning caches:"
+free -h
+
+# Cleaning old log files
+echo "Cleaning old log files..."
+sudo journalctl --vacuum-time=2weeks
+
+# Cleaning package cache
+echo "Cleaning package cache..."
+sudo apt-get clean
+sudo apt-get autoclean
+sudo apt-get autoremove -y
+
+# Cleaning temporary files
+echo "Cleaning temporary files..."
+sudo rm -rf /tmp/*
+
+# Display disk space
+echo "Disk space after cleaning:"
+df -h
+
+# Reboot server
+echo "Rebooting server..."
+sudo reboot
 
 echo "Daily tasks completed."
