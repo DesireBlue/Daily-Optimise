@@ -129,12 +129,10 @@ print_colored_text $CYAN  "█████████████████�
 # Wait for 3 seconds
 sleep 5
 
-#!/bin/bash
-
 # Function to get uptime in seconds
 get_uptime_seconds() {
-    # Use awk to extract uptime in seconds
-    uptime_seconds=$(uptime | awk '{gsub(",", "", $3); split($3, a, ":"); print ((a[1] * 3600) + (a[2] * 60) + a[3])}')
+    # Use cut to extract the uptime portion and then process it
+    uptime_seconds=$(uptime | cut -d " " -f 5- | tr -d "," | awk -F'[: ]+' '{ print ($1 * 3600) + ($2 * 60) + $3 }')
     echo $uptime_seconds
 }
 
@@ -148,6 +146,7 @@ if [[ $uptime_seconds -ge 86400 ]]; then
 else
     echo "Server uptime is less than 1 day (${uptime_seconds} seconds). Not rebooting."
 fi
+
 
 
 echo "Daily tasks completed. Enjoy your VPS!"
