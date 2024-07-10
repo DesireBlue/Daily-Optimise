@@ -1,8 +1,12 @@
 #!/bin/bash
 
+# Change directory to your repository
+cd /root/Daily-Optimise/daily_tasks.sh
+
 # Update from GitHub
 echo "Updating from GitHub..."
-git pull
+git fetch origin
+git reset --hard origin/main
 
 # Clear the screen
 clear
