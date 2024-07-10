@@ -15,10 +15,6 @@ echo -e "\code by : nDesireBlue"
 
 echo "Running daily tasks..."
 
-# Set your bot token and chat ID
-BOT_TOKEN="YOUR_BOT_TOKEN"
-CHAT_ID="YOUR_CHAT_ID"
-
 # Get server IP address
 SERVER_IP=$(hostname -I | cut -d' ' -f1)
 
@@ -62,14 +58,6 @@ sudo rm -rf /tmp/*
 echo "Disk space after cleaning:"
 df -h
 
-# Send Telegram message if BOT_TOKEN and CHAT_ID are set
-if [[ -n "${BOT_TOKEN}" && -n "${CHAT_ID}" ]]; then
-    echo "Sending Telegram message..."
-    message="Daily tasks completed. IP: ${SERVER_IP} *by : @the_nawid*"
-    curl -s -X POST https://api.telegram.org/bot${BOT_TOKEN}/sendMessage -d chat_id=${CHAT_ID} -d text="${message}" -d parse_mode="MarkdownV2"
-    echo "Telegram message sent."
-else
-    echo "Error: BOT_TOKEN or CHAT_ID is not set. Telegram message not sent."
 fi
 
 echo "Daily tasks completed."
