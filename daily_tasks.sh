@@ -11,7 +11,7 @@ clear
 echo -e "${pattern}"
 
 # Display text below the pattern
-echo -e "\nDesireBlue"
+echo -e "\code by : nDesireBlue"
 
 echo "Running daily tasks..."
 
