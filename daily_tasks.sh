@@ -89,5 +89,4 @@ fi
 # Reboot server
 echo "Rebooting server..."
 
-
 echo "Daily tasks completed."
