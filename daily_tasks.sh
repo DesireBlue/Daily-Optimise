@@ -66,7 +66,7 @@ df -h
 
 # Countdown from 10 to 0
 echo "Countdown from 10 to 0:"
-for ((i=10; i>=7; i--)); do
+for ((i=3; i>=1; i--)); do
     echo -n "$i "
     sleep 1
 done
