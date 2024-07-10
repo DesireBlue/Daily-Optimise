@@ -65,7 +65,7 @@ echo "Disk space after cleaning:"
 df -h
 
 # Countdown from 10 to 0
-echo "Countdown from 10 to 0:"
+echo "Countdown from 3 to 1:"
 for ((i=3; i>=1; i--)); do
     echo -n "$i "
     sleep 1
@@ -126,7 +126,7 @@ print_colored_text $CYAN  "█████████████████�
 ███████████████████████████████████
 YOUR VPS IS HACKED  !!  HA HA HA HA
 "
-# Wait for 3 seconds
+# Wait for 5 seconds
 sleep 5
 # Clear the screen
 clear
@@ -165,7 +165,8 @@ print_colored_text $CYAN  "
 ░░░░░░░░░░░░░░░░████████░░░░░░░
 IT WAS A JOKE ! ! ! JA JA JA JA 
 "
-
+# Wait for 2 seconds
+sleep 2
 # Function to get uptime in seconds
 get_uptime_seconds() {
     # Use cut to extract the uptime portion and then process it
