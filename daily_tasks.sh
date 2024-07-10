@@ -88,6 +88,6 @@ fi
 
 # Reboot server
 echo "Rebooting server..."
-sudo reboot
+
 
 echo "Daily tasks completed."
