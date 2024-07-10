@@ -84,9 +84,5 @@ if [[ -n "${BOT_TOKEN}" && -n "${CHAT_ID}" ]]; then
     echo "Telegram message sent."
 else
     echo "Error: BOT_TOKEN or CHAT_ID is not set. Telegram message not sent."
-fi
-
-# Reboot server
-echo "Rebooting server..."
 
 echo "Daily tasks completed."
