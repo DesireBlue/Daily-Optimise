@@ -18,10 +18,20 @@ git reset --hard origin/main
 
 # Clear the screen
 clear
+#LOGO
+print_logo() {
+    echo -e "               ###    ###                          ##                  ##               ##        
+ ## ##          ##     ##                  ####    ##                  ##              ##         
+ ## ##          ##     ##                  ## ##           #           ##              ##     ##  
+ ## ##   ###    ##     ##     ###          ## ##  ###    # # #   ####  ####           ##      ##  
+ #####  ## ##   ##     ##    ## ##         ####    ##     ###   ##     ## ##          ##          
+ ## ##  #####   ##     ##    ## ##         ## ##   ##    # # #  ##     ## ##          ##          
+ ## ##  ##      ##     ##    ## ##         ## ##   ##      #    ##     ## ##           ##     ##  
+ ## ##   ###   ####   ####    ###          ####   ####           ####  ## ##           ##     ##  
+                                                                                        ##        "
 
-# Display the pattern
-echo -e "${pattern}"
 
+}
 # Display text below the pattern
 echo -e "\code by : nDesireBlue"
 
