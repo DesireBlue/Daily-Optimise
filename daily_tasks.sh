@@ -19,9 +19,6 @@ echo -e "\code by : nDesireBlue"
 
 echo "Running daily tasks..."
 
-# Get server IP address
-SERVER_IP=$(hostname -I | cut -d' ' -f1)
-
 # Optimize server daily (replace with your optimization commands)
 echo "Optimizing server..."
 # Example: Run optimization commands here
