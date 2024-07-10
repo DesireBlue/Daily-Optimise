@@ -99,7 +99,7 @@ if [[ $uptime_seconds -gt 43200 ]]; then
     echo "Server uptime is more than 12 hours. Rebooting..."
     sudo reboot
 else
-    echo "Server uptime is less than 12 hours. Not need to rebooting."
+    echo "Server uptime is less than or equal to 12 hours. Not rebooting."
 fi
 
-echo "Daily tasks completed. enjoy your vps"
+echo "Daily tasks completed. Enjoy your VPS!"
