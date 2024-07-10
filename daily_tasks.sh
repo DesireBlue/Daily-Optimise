@@ -2,17 +2,10 @@
 
 # Function to get uptime in seconds
 get_uptime_seconds() {
-    # Try to get uptime using 'uptime' command
-    local uptime=$(uptime | awk '{print $3}' | cut -d',' -f1)
-    
-    # Check if uptime is a number
-    if [[ $uptime =~ ^[0-9]+$ ]]; then
-        echo $uptime
-    else
-        # Fallback: Calculate uptime from 'proc' filesystem
-        local uptime_seconds=$(cut -d' ' -f1 /proc/uptime)
-        echo ${uptime_seconds%%.*}
-    fi
+    # Get uptime in seconds using 'uptime' command and 'awk'
+    local uptime_seconds=$(uptime | awk '{split($3,a,":"); print a[1]*86400 + a[2]*3600 + a[3]*60}')
+
+    echo $uptime_seconds
 }
 
 # Change directory to your Git repository
@@ -79,7 +72,7 @@ df -h
 
 # Countdown from 10 to 0
 echo "Countdown from 10 to 0:"
-for ((i=1; i>=3; i--)); do
+for ((i=10; i>=7; i--)); do
     echo -n "$i "
     sleep 1
 done
@@ -94,12 +87,12 @@ sleep 3
 # Get uptime in seconds
 uptime_seconds=$(get_uptime_seconds)
 
-# Reboot if uptime is more than 12 hours (43200 seconds)
-if [[ $uptime_seconds -gt 43200 ]]; then
-    echo "Server uptime is more than 12 hours. Rebooting..."
+# Reboot if uptime is more than or equal to 1 day (86400 seconds)
+if [[ $uptime_seconds -ge 86400 ]]; then
+    echo "Server uptime is 1 day or more (${uptime_seconds} seconds). Rebooting..."
     sudo reboot
 else
-    echo "Server uptime is less than or equal to 12 hours. Not rebooting."
+    echo "Server uptime is less than 1 day (${uptime_seconds} seconds). Not rebooting."
 fi
 
 echo "Daily tasks completed. Enjoy your VPS!"
