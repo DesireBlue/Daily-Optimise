@@ -62,6 +62,5 @@ sudo rm -rf /tmp/*
 echo "Disk space after cleaning:"
 df -h
 
-fi
-
 echo "Daily tasks completed."
+
