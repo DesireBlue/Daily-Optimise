@@ -14,7 +14,7 @@ echo "Clearing cache..."
 # Example: Clearing Redis cache
 # Example: redis-cli FLUSHALL
 
-# Speed up server daily (replace with your speed up commands)
+## Speed up server daily (replace with your speed up commands)
 echo "Speeding up server..."
 # Example: Tune kernel parameters
 # Example: sysctl -w vm.swappiness=10
