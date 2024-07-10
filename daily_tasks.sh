@@ -2,6 +2,10 @@
 
 echo "Running daily tasks..."
 
+# Update from GitHub
+echo "Updating from GitHub..."
+git pull
+
 # Set your bot token and chat ID
 BOT_TOKEN="YOUR_BOT_TOKEN"
 CHAT_ID="YOUR_CHAT_ID"
