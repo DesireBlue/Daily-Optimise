@@ -1,5 +1,28 @@
 #!/bin/bash
 
+# Define a pattern with •
+pattern="
+               ###    ###                          ##                  ##               ##        
+ ## ##          ##     ##                  ####    ##                  ##              ##         
+ ## ##          ##     ##                  ## ##           #           ##              ##     ##  
+ ## ##   ###    ##     ##     ###          ## ##  ###    # # #   ####  ####           ##      ##  
+ #####  ## ##   ##     ##    ## ##         ####    ##     ###   ##     ## ##          ##          
+ ## ##  #####   ##     ##    ## ##         ## ##   ##    # # #  ##     ## ##          ##          
+ ## ##  ##      ##     ##    ## ##         ## ##   ##      #    ##     ## ##           ##     ##  
+ ## ##   ###   ####   ####    ###          ####   ####           ####  ## ##           ##     ##  
+                                                                                        ##        
+# Wait for 5 seconds (adjust as needed)
+sleep 3    
+                                                                             
+# Clear the screen
+clear
+
+# Display the pattern
+echo -e "${pattern}"
+
+# Display text below the pattern
+echo -e "\nDesireBlue"
+
 echo "Running daily tasks..."
 
 # Update from GitHub
