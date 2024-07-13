@@ -167,6 +167,8 @@ IT WAS A JOKE ! ! ! JA JA JA JA
 "
 # Wait for 2 seconds
 sleep 2
+#!/bin/bash
+
 # Function to get uptime in seconds
 get_uptime_seconds() {
     # Use cut to extract the uptime portion and then process it
@@ -174,9 +176,15 @@ get_uptime_seconds() {
     echo $uptime_seconds
 }
 
-#  display a good night message
+# Display a good night message
 echo "Good night!"
-# Reboot the server without any condition check
+
+# Wait for 5 minutes (300 seconds)
+echo "Waiting for 5 minutes before rebooting..."
+sleep 300
+
+# Reboot the server
 echo "Rebooting the server..."
 sudo reboot
+
 
