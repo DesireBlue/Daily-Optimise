@@ -174,8 +174,10 @@ get_uptime_seconds() {
     echo $uptime_seconds
 }
 
+
 # Get server uptime in seconds
 uptime_output=$(uptime)
+# Extract server uptime in seconds
 uptime_seconds=$(echo $uptime_output | awk '{print $3}' | sed 's/,//')
 
 # Check server uptime and reboot if it's 1 day or more (82800 seconds)
@@ -184,7 +186,9 @@ if [[ $uptime_seconds -ge 82800 ]]; then
     sudo reboot
 else
     echo "Server uptime is less than 1 day (${uptime_seconds} seconds). Not rebooting."
+    echo "Daily tasks completed. Enjoy your server!"
 fi
+
 
 
 echo "Daily tasks completed. Enjoy your VPS!"
