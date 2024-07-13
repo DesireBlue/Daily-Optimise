@@ -179,7 +179,7 @@ get_uptime_seconds() {
 echo -n "Do you want to reboot the server? (y/n): "
 
 # Read user input with a timeout of 10 seconds
-read -t 10 answer
+read -t 50 answer
 
 # Check user's response
 if [ "$answer" == "y" ]; then
