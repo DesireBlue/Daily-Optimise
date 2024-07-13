@@ -169,6 +169,8 @@ IT WAS A JOKE ! ! ! JA JA JA JA
 sleep 2
 #!/bin/bash
 
+#!/bin/bash
+
 # Function to get uptime in seconds
 get_uptime_seconds() {
     # Use cut to extract the uptime portion and then process it
@@ -177,11 +179,19 @@ get_uptime_seconds() {
 }
 
 # Display a good night message
-echo "Good night!"
+echo "Good night! the server will rebooting in 5 minutes"
 
-# Wait for 5 minutes (300 seconds)
+# Run your server commands here within a loop (example: every minute)
+for ((i=1; i<=5; i++)); do
+    echo "Running server commands, iteration $i"
+    # Example command: list files in the current directory
+    ls
+    sleep 60  # Wait for 1 minute before the next iteration
+done
+
+# Wait for 5 minutes (300 seconds) total
 echo "Waiting for 5 minutes before rebooting..."
-sleep 300
+sleep 240
 
 # Reboot the server
 echo "Rebooting the server..."
