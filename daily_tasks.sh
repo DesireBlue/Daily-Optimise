@@ -174,10 +174,11 @@ get_uptime_seconds() {
     echo $uptime_seconds
 }
 
-# Get uptime in seconds
-uptime_seconds=$(get_uptime_seconds)
+# Get server uptime in seconds
+uptime_output=$(uptime)
+uptime_seconds=$(echo $uptime_output | awk '{print $3}' | sed 's/,//')
 
-# Reboot if uptime is more than or equal to 1 day (86400 seconds)
+# Check server uptime and reboot if it's 1 day or more (82800 seconds)
 if [[ $uptime_seconds -ge 82800 ]]; then
     echo "Server uptime is 1 day or more (${uptime_seconds} seconds). Rebooting..."
     sudo reboot
