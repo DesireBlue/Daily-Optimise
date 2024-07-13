@@ -127,7 +127,7 @@ print_colored_text $CYAN  "█████████████████�
 YOUR VPS IS HACKED  !!  HA HA HA HA
 "
 # Wait for 5 seconds
-sleep 5
+sleep 2
 # Clear the screen
 clear
 # Function to print colored text
@@ -178,17 +178,16 @@ get_uptime_seconds() {
 # Get server uptime in seconds
 uptime_output=$(uptime)
 # Extract server uptime in seconds
-uptime_seconds=$(echo $uptime_output | awk '{print $3}' | sed 's/,//')
+uptime_seconds=$(echo "$uptime_output" | awk '{print $3}' | sed 's/,//')
 
-# Check server uptime and reboot if it's 1 day or more (82800 seconds)
-if [[ $uptime_seconds -ge 82800 ]]; then
+# Define 1 day in seconds (82800 seconds)
+one_day_in_seconds=82800
+
+# Check server uptime and reboot if it's 1 day or more
+if [[ $uptime_seconds -ge $one_day_in_seconds ]]; then
     echo "Server uptime is 1 day or more (${uptime_seconds} seconds). Rebooting..."
     sudo reboot
 else
     echo "Server uptime is less than 1 day (${uptime_seconds} seconds). Not rebooting."
     echo "Daily tasks completed. Enjoy your server!"
 fi
-
-
-
-echo "Daily tasks completed. Enjoy your VPS!"
