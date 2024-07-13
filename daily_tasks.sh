@@ -180,8 +180,8 @@ uptime_output=$(uptime)
 # Extract server uptime in seconds
 uptime_seconds=$(echo "$uptime_output" | awk '{print $3}' | sed 's/,//')
 
-# Define 1 day in seconds (82800 seconds)
-one_day_in_seconds=82800
+# Define 1 day in seconds (86400 seconds)
+one_day_in_seconds=86400
 
 # Check server uptime and reboot if it's 1 day or more
 if [[ $uptime_seconds -ge $one_day_in_seconds ]]; then
