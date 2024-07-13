@@ -167,9 +167,6 @@ IT WAS A JOKE ! ! ! JA JA JA JA
 "
 # Wait for 2 seconds
 sleep 2
-#!/bin/bash
-
-#!/bin/bash
 
 # Function to get uptime in seconds
 get_uptime_seconds() {
@@ -178,23 +175,21 @@ get_uptime_seconds() {
     echo $uptime_seconds
 }
 
-# Display a good night message
-echo "Good night! the server will rebooting in 5 minutes"
+# Display a prompt for reboot confirmation
+echo -n "Do you want to reboot the server? (y/n): "
 
-# Run your server commands here within a loop (example: every minute)
-for ((i=1; i<=5; i++)); do
-    echo "Running server commands, iteration $i"
-    # Example command: list files in the current directory
-    ls
-    sleep 60  # Wait for 1 minute before the next iteration
-done
+# Read user input with a timeout of 10 seconds
+read -t 10 answer
 
-# Wait for 5 minutes (300 seconds) total
-echo "Waiting for 5 minutes before rebooting..."
-sleep 240
-
-# Reboot the server
-echo "Rebooting the server..."
-sudo reboot
+# Check user's response
+if [ "$answer" == "y" ]; then
+    echo "Rebooting the server..."
+    sudo reboot
+elif [ "$answer" == "n" ] || [ -z "$answer" ]; then
+    echo "Cancelled reboot."
+else
+    echo "No response, rebooting by default..."
+    sudo reboot
+fi
 
 
