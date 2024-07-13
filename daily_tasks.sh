@@ -174,20 +174,9 @@ get_uptime_seconds() {
     echo $uptime_seconds
 }
 
+#  display a good night message
+echo "Good night!"
+# Reboot the server without any condition check
+echo "Rebooting the server..."
+sudo reboot
 
-# Get server uptime in seconds
-uptime_output=$(uptime)
-# Extract server uptime in seconds
-uptime_seconds=$(echo "$uptime_output" | awk '{print $3}' | sed 's/,//')
-
-# Define 1 day in seconds (86400 seconds)
-one_day_in_seconds=86400
-
-# Check server uptime and reboot if it's 1 day or more
-if [[ $uptime_seconds -ge $one_day_in_seconds ]]; then
-    echo "Server uptime is 1 day or more (${uptime_seconds} seconds). Rebooting..."
-    sudo reboot
-else
-    echo "Server uptime is less than 1 day (${uptime_seconds} seconds). Not rebooting."
-    echo "Daily tasks completed. Enjoy your server!"
-fi
