@@ -175,21 +175,8 @@ get_uptime_seconds() {
     echo $uptime_seconds
 }
 
-# Display a prompt for reboot confirmation
-echo -n "Do you want to reboot the server? (y/n): "
-
-# Read user input with a timeout of 10 seconds
-read -t 50 answer
-
-# Check user's response
-if [ "$answer" == "y" ]; then
-    echo "Rebooting the server..."
+# reboot
+    echo "rebooting ..."
     sudo reboot
-elif [ "$answer" == "n" ] || [ -z "$answer" ]; then
-    echo "Cancelled reboot."
-else
-    echo "No response, rebooting by default..."
-    sudo reboot
-fi
 
 
